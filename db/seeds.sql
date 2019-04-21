@@ -3,4 +3,4 @@ INSERT INTO burgers
 VALUES
     ("Classic", false),
     ("Veggie", false),
-    ("Turkey", false)
+    ("Turkey", false);
