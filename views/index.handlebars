@@ -11,16 +11,15 @@
     <div class="row">
         <div class="col-lg-6">
             <br>
-            <h2>Burger to Eat</h2>
+            <h3>Burgers to Eat</h3>
             <ul>
                 {{#each burgers}}
                 {{#unless this.devoured}}
                 <li>
                     {{this.id}}
                     {{this.burger_name}}
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
-                        <input type="hidden" name="devoured" value="true">
-                        <button class="btn-primary" type="submit">Devour It!</button>
+                    <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                        <button type="submit" class='btn-primary'>Devour It!</button>
                     </form>
                 </li>
                 {{/unless}}
@@ -30,7 +29,7 @@
 
         <div class="col-lg-6">
 
-            <h2>These burgers have already been eaten</h2>
+            <h3>These burgers have already been eaten</h3>
 
             {{#each burgers}}
             {{#if this.devoured}}
@@ -45,11 +44,11 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h2>Add A Burger!</h2>
+            <h4>Add A Burger!</h4>
 
-            <form action="/task" method="POST">
-                <textarea type="text" name="task"></textarea>
-                <p>Enter a burger you want to order and click the Submit Order button.</p>
+            <form action="/burgers" method="POST">
+                <textarea type="text" name="burger_name"></textarea>
+                <p>Enter a burger you want to order and click the "submit" button.</p>
                 <button type="submit">Submit</button>
             </form>
 

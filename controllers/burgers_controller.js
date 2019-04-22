@@ -14,18 +14,17 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/api/burgers", function(req, res) {
+router.post("/burgers", function(req, res) {
   burgers.insertOne(
     ["burger_name", "devoured"],
     [req.body.buger_name, req.body.devoured],
     function(result) {
-      // Send back the ID of the new quote
       res.json({ id: result.insertId });
     }
   );
 });
 
-router.put("/api/burgers/:id", function(req, res) {
+router.put("/burgers/:id", function(req, res) {
   var condition = `id = ${req.params.id};`;
 
   console.log("condition", condition);

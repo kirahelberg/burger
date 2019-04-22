@@ -15,8 +15,9 @@ var orm = {
       cb(result);
     });
   },
+
   insertOne: function(tableName, cols, vals, cb) {
-    var queryString = `INSERT INTO ${tableName}(${cols}) VALUES(${vals});`;
+    var queryString = `INSERT INTO ${tableName}(${cols.toString()}) VALUES(${vals.toString()});`;
     console.log(queryString);
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -26,7 +27,6 @@ var orm = {
     });
   },
 
-  // An example of objColVals would be {name: panther, sleepy: true}
   updateOne: function(tableName, objColVals, condition, cb) {
     var queryString = `UPDATE ${tableName} SET ${objToSql(
       objColVals
